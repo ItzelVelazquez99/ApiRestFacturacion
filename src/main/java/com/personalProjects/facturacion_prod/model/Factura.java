@@ -3,6 +3,7 @@ package com.personalProjects.facturacion_prod.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 
 import java.math.BigDecimal;
@@ -23,6 +24,7 @@ public class Factura {
 
     @Transient
     private final double IVA = 0.15; //15%
+    @CreationTimestamp
     private LocalDateTime fechaCreado;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "factura", orphanRemoval = true)
